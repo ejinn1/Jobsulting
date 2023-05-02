@@ -1,0 +1,147 @@
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 10;
+  background-color: white;
+  width: 100%;
+  border-bottom: 1px solid #f3f5f7;
+}
+.header-box {
+  width: 1100px;
+  height: 69px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+}
+
+.header-title {
+  padding-right: 20px;
+  margin-right: 10px;
+  margin-left: 30px;
+  letter-spacing: 1px;
+
+  color: #1866d2;
+  font-weight: 800;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.header-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* nav */
+
+.header-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-nav a {
+  font-size: 14px;
+  font-weight: 600;
+  color: #afb6b9;
+}
+.header-nav a:hover {
+  color: #94a8fa;
+}
+.header-nav a + a {
+  margin-left: 20px;
+}
+
+/* right */
+
+.header-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.input-box {
+  width: 300px;
+  height: 40px;
+  position: relative;
+  border: 0;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+.input-box svg {
+  position: absolute;
+  left: 15px;
+  top: 8px;
+}
+.input-box input {
+  border: 0;
+  padding-left: 50px;
+  background-color: #f3f5f7;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  outline: none;
+}
+
+.suggest-title {
+  width: 100%;
+}
+.input-box .input-suggest {
+  width: 300px;
+  max-height: 0;
+  background-color: white;
+  position: absolute;
+  top: 40px;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  flex-wrap: wrap;
+
+  transition: max-height 1s ease-out;
+}
+.input-box:focus-within .input-suggest {
+  max-height: 300px;
+}
+.suggest-title {
+  width: 300px;
+  margin-bottom: 12px;
+}
+.suggest {
+  margin-top: 8px;
+  margin-right: 8px;
+  border-radius: 15px;
+  padding: 5px 12px;
+  font-size: 14px;
+  line-height: 20px;
+  height: 30px;
+  font-weight: 400;
+
+  color: #595f63;
+  background-color: #f3f4f5;
+  position: relative;
+}
+
+.login-Btn {
+  padding: 8px;
+  font-size: 14px;
+  margin-left: 10px;
+  color: black;
+  border-radius: 4px;
+
+  transition: all 0.1s ease;
+
+  cursor: pointer;
+}
+.login-Btn:hover {
+  background-color: #f3f5f7;
+}
