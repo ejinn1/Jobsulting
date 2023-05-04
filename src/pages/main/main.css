@@ -23,24 +23,34 @@ main {
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px;
+
+  display: flex;
 }
-.main-start dt {
+
+/* left */
+.start-left {
+  width: 500px;
+  margin-top: 50px;
+}
+.start-left dt {
   font-size: 54px;
   font-weight: 700;
   margin-bottom: 16px;
 }
-.main-start dd {
+.start-left dd {
   font: 20px;
   font-weight: 400;
   margin-bottom: 31px;
 }
 
-.main-start button {
+.start-left button {
   width: 100px;
   height: 50px;
   padding: 5px;
+  /* margin-top: 50px; */
 
   font-size: 15px;
+  cursor: pointer;
 
   border: 1px solid #1866d2;
   background-color: #1866d2;
@@ -48,16 +58,27 @@ main {
   color: white;
 }
 
-.main-profil {
+/* right */
+.start-right {
+  width: 500px;
+  height: 300px;
+  /* margin-top: 50px; */
+  /* align-self: flex-end; */
+  margin-left: 100px;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.start-bottom-profil {
   width: auto;
   padding: 12px 20px;
   border-radius: 8px;
   position: absolute;
-  bottom: -200px;
+  bottom: -100px;
   font-size: 14px;
 
   background-color: white;
 }
-.main-profil a {
+.start-bottom-profil a {
   color: #1866d2;
 }

@@ -26,12 +26,11 @@ function Header() {
         <div className="header-title">
           <Link to="/">Jobsulting</Link>
         </div>
-
         <div className="header-content">
           <nav className="header-nav">
             <Link to="/">직무 탐색</Link>
             <Link to="/">AI 분석 결과</Link>
-            <Link to="/">내 프로필</Link>
+            <Link to="/profil">내 프로필</Link>
           </nav>
 
           <div className="header-right">
@@ -54,7 +53,7 @@ function Header() {
               />
               {show && (
                 <div>
-                  <div className="suggest-title">인기 검색어</div>
+                  {/* <div className="suggest-title">인기 검색어</div> */}
                   <div className="input-suggest">
                     <span
                       className="suggest"
