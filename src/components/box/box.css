@@ -1,0 +1,89 @@
+.jobBox {
+  position: relative;
+  width: 250px;
+  height: 350px;
+  box-sizing: border-box;
+  margin: 5px;
+  /* border-radius: 8px; */
+  right: 0px;
+  bottom: 0px;
+  border: 1px solid #94a8fa;
+  transition: all 0.3s ease-in-out;
+
+  /* background-color: #666666; */
+}
+.jobBox:hover {
+  right: 10px;
+  bottom: 10px;
+  box-shadow: 7px 7px 0px 3px #94a8fa;
+  border: 1px solid #1866d2;
+}
+
+.box-go-position {
+  text-decoration: none; /* 링크의 밑줄 제거 */
+  color: inherit; /* 링크의 색상 제거 */
+}
+
+.boxImg {
+  width: 249px;
+  height: 166px;
+  /* border-radius: 4px; */
+  background-color: #1866d2;
+  overflow: hidden;
+  position: relative;
+}
+.boxInfo {
+  padding: 12px 0px 36px;
+  width: calc(100% - 7px);
+  margin-left: 5px;
+}
+.infoBoxCompany {
+  font-size: 16px;
+
+  display: flex;
+  align-items: center;
+}
+.infoBoxCompany span {
+  font-size: 14px;
+  color: rgb(68, 68, 68);
+}
+
+.infoPosition {
+  margin-top: 10px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.infoStack {
+  display: flex;
+  margin-top: 16px;
+  color: #9f9f9f;
+  font-size: 12px;
+  height: 18px;
+}
+.infoStack li + li {
+  margin: 0 3px;
+}
+.infoDetail {
+  display: flex;
+  margin-top: 4px;
+  color: #666666;
+  font-size: 12px;
+  height: 18px;
+}
+.infoDetail li + li {
+  margin: 0 13px;
+}
+.reason {
+  width: 250px;
+  height: 80px;
+  position: relative;
+  font-size: 12px;
+  color: red;
+  padding-top: 20px;
+
+  transition: all 0.2s linear;
+  opacity: 0;
+}
+.reason:hover {
+  opacity: 1;
+}

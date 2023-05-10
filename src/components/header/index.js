@@ -4,6 +4,9 @@ import { useRef, useState } from "react";
 
 function Header() {
   const [show, setShow] = useState(false);
+  const [isLogin, setIslogin] = useState(false);
+  const [view, setView] = useState(false);
+
   const inputRef = useRef(null);
 
   const handleFocus = () => {
@@ -20,6 +23,10 @@ function Header() {
     inputRef.current.value = suggestion;
   };
 
+  const onLogin = () => {
+    setIslogin((current) => !current);
+  };
+
   return (
     <header className="header">
       <div className="header-box">
@@ -28,9 +35,10 @@ function Header() {
         </div>
         <div className="header-content">
           <nav className="header-nav">
-            <Link to="/">직무 탐색</Link>
+            <Link to="/job">직무 탐색</Link>
             <Link to="/">AI 분석 결과</Link>
             <Link to="/profil">내 프로필</Link>
+            <Link to="/">커뮤니티</Link>
           </nav>
 
           <div className="header-right">
@@ -53,7 +61,6 @@ function Header() {
               />
               {show && (
                 <div>
-                  {/* <div className="suggest-title">인기 검색어</div> */}
                   <div className="input-suggest">
                     <span
                       className="suggest"
@@ -83,12 +90,50 @@ function Header() {
                 </div>
               )}
             </div>
+            {isLogin ? (
+              <div
+                className="login-profil"
+                onClick={() => {
+                  setView(!view);
+                }}
+              >
+                <svg
+                  width="22"
+                  height="22"
+                  fill="white"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 10.8a3.6 3.6 0 1 0 0-7.2 3.6 3.6 0 0 0 0 7.2ZM3.6 21.6a8.4 8.4 0 0 1 16.8 0H3.6Z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                {view && (
+                  <div className="dropDown">
+                    <div className="drop-box">
+                      <div>로그아웃</div>
+                      <div>내 프로필</div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className="login-Btn" onClick={onLogin}>
+                로그인
+              </div>
+            )}
             <div className="login-Btn">
               <Link to="/login">로그인</Link>
             </div>
             <div className="login-Btn">
               <Link to="/join">회원가입</Link>
             </div>
+
+            {/* <div className="login-Btn">
+              <Link to="/">기업 로그인/회원가입</Link>
+            </div> */}
           </div>
         </div>
       </div>

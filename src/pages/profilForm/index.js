@@ -2,12 +2,13 @@ import { useState } from "react";
 import "./profilForm.css";
 import { Link } from "react-router-dom";
 
-function ProfilForm() {
+function ProfilForm(data) {
   const [region, setRegion] = useState("");
   const [salary, setSalary] = useState("");
   const [stack, setStack] = useState("");
   const [carrer, setCarrer] = useState("");
   const [job, setJob] = useState("");
+  const [user, setUser] = useState(data);
 
   return (
     <div className="profil-form-wrapper">
@@ -15,8 +16,8 @@ function ProfilForm() {
       <div className="profil-form-box">
         <form>
           <div className="item">
-            <label htmlFor="region">
-              <strong>희망 직무</strong>
+            <label htmlFor="job">
+              <strong>직무</strong>
             </label>
             <input
               id="job"

@@ -14,11 +14,11 @@ function Main() {
                 <dt>AI 개인 맞춤 직무 추천</dt>
                 <dd>개인에게 맞는 직무를 추천 받고 싶다면</dd>
               </dl>
-              <Link to={"/profil"}>
+              <Link to={"/select"}>
                 <button>시작하기</button>
               </Link>
             </aside>
-            <aside className="start-right"></aside>
+            {/* <aside className="start-right"></aside> */}
             <div className="start-bottom-profil">
               <p>
                 프로필 등록을 하지 않으셨나요?{" "}
@@ -28,6 +28,7 @@ function Main() {
           </div>
         </div>
       </main>
+      <footer></footer>
     </div>
   );
 }

@@ -145,3 +145,32 @@
 .login-Btn:hover {
   background-color: #f3f5f7;
 }
+.login-profil {
+  width: 30px;
+  height: 30px;
+  border: 1px solid white;
+  border-radius: 50%;
+  background-color: #e0e2e4;
+  margin-left: 32px;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+.dropDown {
+  position: absolute;
+  width: 100%;
+  top: 30px;
+  padding: 10px;
+}
+.drop-box {
+  min-width: 194px;
+  border-radius: 10px;
+  box-shadow: 1px 2px 10px 0 rgba(0, 0, 0, 0.3);
+  border: 1px solid #cdcdcd;
+  background-color: #fff;
+}

@@ -94,3 +94,15 @@
   background-color: #fff;
   margin-bottom: 10px;
 }
+
+.section-box h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #333;
+  margin: 15px 0 15px;
+}
+.section-box p {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}

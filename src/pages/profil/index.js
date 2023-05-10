@@ -9,7 +9,7 @@ function Profil() {
     email: "ejinn1@naver.com",
     location: "부천",
     carrer: "신입",
-    stack: ["React"],
+    stack: ["React", "HTML"],
   });
 
   return (
@@ -27,7 +27,6 @@ function Profil() {
                   기본정보 수정
                 </Link>
               </div>
-
               <div className="profil-status">
                 <div className="status-item">
                   <span>관심기업</span>
@@ -45,11 +44,32 @@ function Profil() {
             </header>
             <div></div>
           </aside>
+
           <section>
             <div>
-              <div className="section-box">a</div>
-              <div className="section-box">a</div>
-              <div className="section-box">a</div>
+              <div className="section-box">
+                <div>
+                  <h3>프로필</h3>
+                  <div>
+                    <p>이름: {user.name}</p>
+                    <p>이메일: {user.email}</p>
+                    <p>위치: {user.location}</p>
+                    <p>스택: {user.stack.map((s) => s)}</p>
+                  </div>
+                </div>
+              </div>
+              <div className="section-box">
+                <div>
+                  <h3>포트폴리오</h3>
+                  <div>
+                    <p>깃허브: @@@</p>
+                    <p>블로그: @@@</p>
+                  </div>
+                </div>
+              </div>
+              <div className="section-box">
+                <div>??</div>
+              </div>
             </div>
           </section>
         </div>
