@@ -7,7 +7,6 @@ import { Link, useNavigate } from "react-router-dom";
 function Recommend() {
   const [salary, setSalary] = useState("");
   const [career, setCareer] = useState("");
-  const [workType, setWorkType] = useState("");
   const [education, setEducation] = useState("");
 
   // loading
@@ -39,7 +38,7 @@ function Recommend() {
   //stack
   const [stack, setStack] = useState([]);
   const [inputStack, setInputStack] = useState("");
-  const [tony, setTony] = useState(stack);
+  const [tony, setTony] = useState([]);
   useEffect(() => {
     // 서버로부터 스택 데이터 가져오기
     axios
@@ -48,6 +47,7 @@ function Recommend() {
         // 서버로부터 받은 데이터 처리
         const data = response.data;
         setStack(data); // 스택 데이터 설정
+        setTony(data);
       })
       .catch((error) => {
         console.log(error);
@@ -79,10 +79,26 @@ function Recommend() {
     }
   };
 
-  // salary
-  const handleSalaryChange = (event) => {
+  // work-type
+  const [workType, setWorkType] = useState([]);
+  const [selectedworkType, setSelectedWorkType] = useState("");
+  useEffect(() => {
+    axios
+      .get("http://127.0.0.1:8000/match/jobtype-api/") // 요청을 보낼 엔드포인트 경로
+      .then((response) => {
+        // 서버로부터 받은 데이터 처리
+        const data = response.data;
+        // console.log("wortype", data);
+        setWorkType(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  const handleTypeChange = (event) => {
     // console.log(event.target.value);
-    setSalary(event.target.value);
+    setSelectedWorkType(event.target.value);
   };
 
   // 에듀
@@ -91,483 +107,30 @@ function Recommend() {
     setEducation(event.target.value);
   };
 
-  const LOCATION = [
-    {
-      id: 1,
-      location: "서울",
-    },
-    {
-      id: 2,
-      location: "경기",
-    },
-    {
-      id: 3,
-      location: "인천",
-    },
-    {
-      id: 4,
-      location: "부산",
-    },
-    {
-      id: 5,
-      location: "대구",
-    },
-    {
-      id: 6,
-      location: "광주",
-    },
-    {
-      id: 7,
-      location: "대전",
-    },
-    {
-      id: 8,
-      location: "울산",
-    },
-    {
-      id: 9,
-      location: "세종",
-    },
-    {
-      id: 10,
-      location: "강원",
-    },
-    {
-      id: 11,
-      location: "경남",
-    },
-    {
-      id: 12,
-      location: "경북",
-    },
-    {
-      id: 13,
-      location: "전남",
-    },
-    {
-      id: 14,
-      location: "전북",
-    },
-    {
-      id: 15,
-      location: "충남",
-    },
-    {
-      id: 16,
-      location: "충북",
-    },
-    {
-      id: 17,
-      location: "제주",
-    },
-    {
-      id: 18,
-      location: "전국",
-    },
-  ];
-
-  const STACK = [
-    {
-      id: 1,
-      name: "그누보드",
-    },
-    {
-      id: 2,
-      name: "라즈베리파이",
-    },
-    {
-      id: 3,
-      name: "쉘스크립트",
-    },
-    {
-      id: 4,
-      name: "스마트컨트랙트",
-    },
-    {
-      id: 5,
-      name: "아두이노",
-    },
-    {
-      id: 6,
-      name: "액션스크립트",
-    },
-    {
-      id: 7,
-      name: "어셈블리",
-    },
-    {
-      id: 8,
-      name: "와이어샤크",
-    },
-    {
-      id: 9,
-      name: "임베디드리눅스",
-    },
-    {
-      id: 10,
-      name: "파워빌더",
-    },
-    {
-      id: 11,
-      name: "풀스택",
-    },
-    {
-      id: 12,
-      name: ".NET",
-    },
-    {
-      id: 13,
-      name: "ABAP",
-    },
-    {
-      id: 14,
-      name: "AIX",
-    },
-    {
-      id: 15,
-      name: "ASP",
-    },
-    {
-      id: 16,
-      name: "ASP.NET",
-    },
-    {
-      id: 17,
-      name: "AWS",
-    },
-    {
-      id: 18,
-      name: "Ajax",
-    },
-    {
-      id: 19,
-      name: "Android",
-    },
-    {
-      id: 20,
-      name: "Angular",
-    },
-    {
-      id: 21,
-      name: "Apache",
-    },
-    {
-      id: 22,
-      name: "ArcGIS",
-    },
-    {
-      id: 1,
-      name: "Azure",
-    },
-    {
-      id: 1,
-      name: "Bootstrap",
-    },
-    {
-      id: 1,
-      name: "C#",
-    },
-    {
-      id: 1,
-      name: "C++",
-    },
-    {
-      id: 1,
-      name: "COBOL",
-    },
-    {
-      id: 1,
-      name: "CSS",
-    },
-    {
-      id: 1,
-      name: "CSS3",
-    },
-    {
-      id: 1,
-      name: "CentOS",
-    },
-    {
-      id: 1,
-      name: "C언어",
-    },
-    {
-      id: 1,
-      name: "Delphi",
-    },
-    {
-      id: 1,
-      name: "Directx",
-    },
-    {
-      id: 1,
-      name: "Django",
-    },
-    {
-      id: 1,
-      name: "Docker",
-    },
-    {
-      id: 1,
-      name: "ECMAScript",
-    },
-    {
-      id: 1,
-      name: "Eclipse",
-    },
-    {
-      id: 1,
-      name: "ElasticStack",
-    },
-    {
-      id: 1,
-      name: "FLEX",
-    },
-    {
-      id: 1,
-      name: "Flask",
-    },
-    {
-      id: 1,
-      name: "Flutter",
-    },
-    {
-      id: 1,
-      name: "GCP",
-    },
-    {
-      id: 1,
-      name: "Git",
-    },
-    {
-      id: 1,
-      name: "GoLang",
-    },
-    {
-      id: 1,
-      name: "GrapgQL",
-    },
-    {
-      id: 1,
-      name: "Groovy",
-    },
-    {
-      id: 1,
-      name: "Gulp",
-    },
-    {
-      id: 1,
-      name: "HBase",
-    },
-    {
-      id: 1,
-      name: "HTML",
-    },
-    {
-      id: 1,
-      name: "HTML5",
-    },
-    {
-      id: 1,
-      name: "Hadoop",
-    },
-    {
-      id: 1,
-      name: "laaS",
-    },
-    {
-      id: 1,
-      name: "lonic",
-    },
-    {
-      id: 1,
-      name: "JPA",
-    },
-    {
-      id: 1,
-      name: "JSP",
-    },
-    {
-      id: 1,
-      name: "Java",
-    },
-    {
-      id: 1,
-      name: "Javascript",
-    },
-    {
-      id: 1,
-      name: "Jenkins",
-    },
-    {
-      id: 1,
-      name: "Kotlin",
-    },
-    {
-      id: 1,
-      name: "Kubernetes",
-    },
-    {
-      id: 1,
-      name: "LabVIEW",
-    },
-    {
-      id: 1,
-      name: "Linux",
-    },
-    {
-      id: 1,
-      name: "Logstash",
-    },
-    {
-      id: 1,
-      name: "Lucene",
-    },
-    {
-      id: 1,
-      name: "MFC",
-    },
-    {
-      id: 1,
-      name: "MSSQL",
-    },
-    {
-      id: 1,
-      name: "MacOS",
-    },
-    {
-      id: 1,
-      name: "MariaDB",
-    },
-    {
-      id: 1,
-      name: "Matlab",
-    },
-    {
-      id: 1,
-      name: "Maven",
-    },
-    {
-      id: 1,
-      name: "MongoDB",
-    },
-    {
-      id: 1,
-      name: "MyBatis",
-    },
-    {
-      id: 1,
-      name: "MySQL",
-    },
-    {
-      id: 1,
-      name: "NoSOL",
-    },
-    {
-      id: 1,
-      name: "Node.js",
-    },
-    {
-      id: 1,
-      name: "Objective-C",
-    },
-    {
-      id: 1,
-      name: "OpenCV",
-    },
-    {
-      id: 1,
-      name: "OpenGL",
-    },
-    {
-      id: 1,
-      name: "OracleDB",
-    },
-    {
-      id: 1,
-      name: "PHP",
-    },
-    {
-      id: 1,
-      name: "PL/SOL",
-    },
-    {
-      id: 1,
-      name: "PaaS",
-    },
-    {
-      id: 1,
-      name: "Pandas",
-    },
-    {
-      id: 1,
-      name: "Perl",
-    },
-  ];
-
-  const SALARY = [
-    // {
-    //   id: 0,
-    //   value: "상관없음",
-    // },
-    {
-      id: 1,
-      value: "2000",
-    },
-    {
-      id: 6,
-      value: "3000",
-    },
-    {
-      id: 11,
-      value: "4000",
-    },
-    {
-      id: 12,
-      value: "5000",
-    },
-    {
-      id: 13,
-      value: "6000",
-    },
-    {
-      id: 14,
-      value: "7000",
-    },
-    {
-      id: 15,
-      value: "8000",
-    },
-    {
-      id: 16,
-      value: "9000",
-    },
-    // {
-    //   id: 17,
-    //   value: "1억원",
-    // },
-  ];
-
   const EDUCATION = [
     {
+      id: 0,
+      type: "미응답",
+    },
+    {
       id: 1,
-      value: "고등학교졸업",
+      type: "고등학교졸업",
     },
     {
       id: 2,
-      value: "대학졸업(2,3)년",
+      type: "대학졸업(2,3)년",
     },
     {
       id: 3,
-      value: "대학교졸업(4년)",
+      type: "대학교졸업(4년)",
     },
     {
       id: 4,
-      value: "석사졸업",
+      type: "석사졸업",
     },
     {
       id: 5,
-      value: "박사졸업",
+      type: "박사졸업",
     },
   ];
 
@@ -580,7 +143,7 @@ function Recommend() {
       salary: salary,
       career: career,
       skills: selectedStack,
-      work_type: workType,
+      work_type: selectedworkType,
       education: education,
     };
     console.log(data);
@@ -666,10 +229,14 @@ function Recommend() {
                 <label htmlFor="salary">
                   <strong>연봉</strong>
                 </label>
-                <SelectBox
-                  title="희망 연봉"
-                  options={SALARY}
-                  handleChange={handleSalaryChange}
+                <input
+                  id="salary"
+                  value={salary}
+                  type="number"
+                  placeholder="연봉 입력 (단위 만원)"
+                  onChange={(event) => {
+                    setSalary(event.target.value);
+                  }}
                 />
               </div>
               <div className="item">
@@ -679,7 +246,7 @@ function Recommend() {
                 <input
                   id="carrer"
                   value={career}
-                  type="text"
+                  type="number"
                   placeholder="경력 입력 (신입이면 0)"
                   onChange={(event) => {
                     setCareer(event.target.value);
@@ -690,14 +257,10 @@ function Recommend() {
                 <label htmlFor="workType">
                   <strong>직무형태</strong>
                 </label>
-                <input
-                  id="workType"
-                  value={workType}
-                  type="text"
-                  placeholder="직무 형태"
-                  onChange={(event) => {
-                    setWorkType(event.target.value);
-                  }}
+                <SelectBox
+                  title="직무 형태"
+                  options={workType}
+                  handleChange={handleTypeChange}
                 />
               </div>
               <div className="item">

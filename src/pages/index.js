@@ -8,3 +8,4 @@ export { default as RecommendPage } from "./recommend";
 export { default as PostingPage } from "./posting";
 export { default as KakaoPage } from "./kakao";
 export { default as ResultPage } from "./result";
+export { default as TrendPage } from "./trend";

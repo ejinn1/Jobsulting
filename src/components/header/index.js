@@ -58,6 +58,8 @@ function Header({ name, access_token, setName, setEmail, SetToken }) {
             <Link to="/recommend">AI 추천</Link>
             <Link to="/profil">내 프로필</Link>
             <Link to="/posting">공고</Link>
+            <Link to="/loading">로딩</Link>
+            <Link to="/trend">트렌드</Link>
           </nav>
 
           <div className="header-right">

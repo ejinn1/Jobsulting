@@ -11,6 +11,7 @@ import {
   PostingPage,
   KakaoPage,
   ResultPage,
+  TrendPage,
 } from "pages";
 import { Header } from "components";
 import axios from "axios";
@@ -54,6 +55,7 @@ function App() {
           }
         />
         <Route path="/result" element={<ResultPage />} />
+        <Route path="/trend" element={<TrendPage />} />
       </Routes>
     </BrowserRouter>
   );
