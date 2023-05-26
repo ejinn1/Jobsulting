@@ -1,9 +1,8 @@
-import { Header } from "components";
 import "./profil.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-function Profil() {
+function Profil({ name, email }) {
   const [user, setUser] = useState({
     name: "유의진",
     email: "ejinn1@naver.com",
@@ -12,17 +11,20 @@ function Profil() {
     stack: ["React", "HTML"],
   });
 
+  console.log(name, email);
+
   return (
     <div className="profil-wrapper">
-      <Header />
       <div className="profil-box">
         <h2>프로필</h2>
         <div className="profil">
           <aside>
             <header>
               <div className="profil-user">
-                <div className="user-name">{user.name}</div>
-                <div className="user-email">{user.email}</div>
+                <div className="user-name">{name !== "" ? name : "김철수"}</div>
+                <div className="user-email">
+                  {email !== "" ? email : "조까"}
+                </div>
                 <Link to={"/"} className="user-edit">
                   기본정보 수정
                 </Link>
@@ -51,8 +53,8 @@ function Profil() {
                 <div>
                   <h3>프로필</h3>
                   <div>
-                    <p>이름: {user.name}</p>
-                    <p>이메일: {user.email}</p>
+                    <p>이름: {name !== "" ? `${name}` : "김철수"}</p>
+                    <p>이메일: {email !== "" ? `${email}` : "조까"}</p>
                     <p>위치: {user.location}</p>
                     <p>스택: {user.stack.map((s) => s)}</p>
                   </div>

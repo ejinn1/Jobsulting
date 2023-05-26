@@ -1,18 +1,42 @@
 import { useState } from "react";
 import "./login.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
-function Login() {
+function Login({ setKey }) {
   const [id, setId] = useState("");
   const [pass, setPass] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
-    console.log(id, pass);
-    event.preventDefault();
+  const data = {
+    email: id,
+    password: pass,
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log(data);
+    axios
+      .post("http://localhost:8000/accounts/login/", data, {
+        withCredentials: true, // 쿠키를 전송하기 위해 withCredentials 옵션을 설정
+      })
+      .then((response) => {
+        console.log(response.data);
+        setKey(response.data.key);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("에러", error);
+      });
+  };
+
+  // 카카오
+  const location = useLocation();
+  const code = location.state.code;
+  console.log(code);
+
   return (
-    <div>
+    <div className="login-back">
       <div className="login-wrapper">
         <div className="login-header">
           <Link to={"/"}>
@@ -28,7 +52,7 @@ function Login() {
                   className="input01"
                   value={id}
                   id="txtID"
-                  placeholder="아이디 또는 이메일"
+                  placeholder="아이디"
                   onChange={(event) => {
                     setId(event.target.value);
                   }}
@@ -36,7 +60,7 @@ function Login() {
               </div>
               <div className="pass">
                 <input
-                  type="text"
+                  type="password"
                   className="input01"
                   value={pass}
                   id="txtPWD"
@@ -53,12 +77,12 @@ function Login() {
               </div>
             </form>
           </div>
-          <p className="login-menu">
+          {/* <p className="login-menu">
             <a href="/join">회원가입</a>
             <a href="#">ID 찾기</a>
             <a href="#">비밀번호 찾기</a>
-          </p>
-          <div className="tpa">
+          </p> */}
+          {/* <div className="tpa">
             <button type="button" className="btFacebook">
               <span className="icon"></span>Facebook 로그인
             </button>
@@ -71,7 +95,7 @@ function Login() {
             <button type="button" className="btFacebook">
               <span className="icon"></span>Apple 로그인
             </button>
-          </div>
+          </div> */}
         </div>
         <div className="login-footer">
           <p>© JOBSULTING Corporation All Rights Reserved.</p>

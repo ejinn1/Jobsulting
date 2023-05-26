@@ -1,0 +1,19 @@
+.result-box {
+  width: 1100px;
+  height: 100%;
+  margin: 120px auto;
+  padding: 0 30px 30px 30px;
+  max-width: 1040px;
+  margin-bottom: 100px;
+}
+.result-box h1 {
+  font-size: 40px;
+  line-height: 72px;
+  font-weight: bold;
+}
+
+.result-wrapper {
+  padding-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+}

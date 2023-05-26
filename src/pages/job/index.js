@@ -237,19 +237,7 @@ function Job() {
   const checkId = (e) => {
     console.log(e.target.value);
     setIdx(parseInt(e.target.value));
-    // setShow(place.filter((item) => item.part === idx || item.part === 1));
   };
-
-  // const addFindStacks = (e) => {
-  //   setValue(e.target.innerText);
-  //   setFindStacks((prev) => {
-  //     if (prev.includes(value)) {
-  //       return prev.filter((v) => v !== value);
-  //     } else {
-  //       return [...prev, value];
-  //     }
-  //   });
-  // };
 
   useEffect(() => {
     setStacks(jobs[idx - 1].framwork);
@@ -267,58 +255,55 @@ function Job() {
 
   return (
     <div>
-      <Header />
-      <div>
-        <section className="jobs-list-wrapper">
-          <h1>직무 탐색</h1>
-          <section className="jobs-list">
-            <div className="jobBtn-wrapper">
-              <div>
-                {jobs.map((item) => (
-                  <button
-                    value={item.id}
-                    key={item.id}
-                    className={"jobBtn" + (item.id === idx ? "-select" : "")}
-                    onClick={checkId}
-                  >
-                    {item.name}
-                  </button>
-                ))}
-              </div>
-              <div>
-                {idx !== 1 &&
-                  stacks.map((s, index) => {
-                    return (
-                      <button
-                        key={index}
-                        className={"stackBtn"}
-                        // onClick={addFindStacks}
-                      >
-                        {s}
-                      </button>
-                    );
-                  })}
-              </div>
+      <section className="jobs-list-wrapper">
+        <h1>직무 탐색</h1>
+        <section className="jobs-list">
+          <div className="jobBtn-wrapper">
+            <div>
+              {jobs.map((item) => (
+                <button
+                  value={item.id}
+                  key={item.id}
+                  className={"jobBtn" + (item.id === idx ? "-select" : "")}
+                  onClick={checkId}
+                >
+                  {item.name}
+                </button>
+              ))}
             </div>
-          </section>
+            <div>
+              {idx !== 1 &&
+                stacks.map((s, index) => {
+                  return (
+                    <button
+                      key={index}
+                      className={"stackBtn"}
+                      // onClick={addFindStacks}
+                    >
+                      {s}
+                    </button>
+                  );
+                })}
+            </div>
+          </div>
         </section>
-        <div className="job-main">
-          <div className="job-main-box">
-            <div className="selected-jobs">
-              {show.map((item) => {
-                return (
-                  <div key={item.id}>
-                    <Box
-                      name={item.name}
-                      title={item.title}
-                      stack={item.stack}
-                      location={item.location}
-                      career={item.career}
-                    />
-                  </div>
-                );
-              })}
-            </div>
+      </section>
+      <div className="job-main">
+        <div className="job-main-box">
+          <div className="selected-jobs">
+            {show.map((item) => {
+              return (
+                <div key={item.id}>
+                  <Box
+                    name={item.name}
+                    title={item.title}
+                    stack={item.stack}
+                    location={item.location}
+                    career={item.career}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

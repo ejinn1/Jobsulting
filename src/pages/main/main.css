@@ -82,3 +82,6 @@ main {
 .start-bottom-profil a {
   color: #1866d2;
 }
+.start-bottom-profil p + p {
+  margin-top: 8px;
+}

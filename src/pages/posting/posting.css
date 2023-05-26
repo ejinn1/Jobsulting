@@ -1,0 +1,16 @@
+.posting-wrapper {
+  margin: 120px auto 16px;
+  max-width: 1040px;
+  margin-bottom: 100px;
+}
+.posting-wrapper h1 {
+  font-size: 40px;
+  line-height: 72px;
+  font-weight: bold;
+}
+
+.post-wrapper {
+  padding-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+}

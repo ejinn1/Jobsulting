@@ -12,12 +12,12 @@
 
   /* background-color: #666666; */
 }
-.jobBox:hover {
+/* .jobBox:hover {
   right: 10px;
   bottom: 10px;
   box-shadow: 7px 7px 0px 3px #94a8fa;
   border: 1px solid #1866d2;
-}
+} */
 
 .box-go-position {
   text-decoration: none; /* 링크의 밑줄 제거 */

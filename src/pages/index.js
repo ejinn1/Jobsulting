@@ -4,4 +4,7 @@ export { default as LoginPage } from "./login";
 export { default as ProfilForm } from "./profilForm";
 export { default as ProfilPage } from "./profil";
 export { default as JobPage } from "./job";
-export { default as SelectPage } from "./select";
+export { default as RecommendPage } from "./recommend";
+export { default as PostingPage } from "./posting";
+export { default as KakaoPage } from "./kakao";
+export { default as ResultPage } from "./result";

@@ -1,20 +1,21 @@
 .join-back {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   padding-bottom: 100px;
   background-color: #f3f5f7;
 }
 .join-box {
   width: 492px;
-  margin: 0 auto;
+  margin: 70px auto;
   position: relative;
 }
 
 /* header */
 .join-header {
   min-width: 492px;
-  padding-top: 120px;
+  padding-top: 150px;
   text-align: center;
+  /* background-color: white; */
 }
 .join-title {
   display: inline-block;
@@ -27,89 +28,12 @@
   color: black;
 }
 
-/* content */
-
-.content-box {
-  position: relative;
-  width: 492px;
-  margin-top: 52px;
-}
-.content-box h1 {
-  font-size: 16px;
-  font-weight: 700;
-  padding-bottom: 10px;
-
-  border-bottom: 2px solid #b5b7bf;
-  border-radius: 1px;
-}
-.content-box .item {
-  margin-top: 28px;
-  position: relative;
-}
-.content-box label {
-  cursor: pointer;
-}
-.content-box label strong {
-  font-size: 14px;
-  font-weight: 600;
-  color: #373f57;
-  margin-bottom: 12px;
-  display: inline-block;
-}
-.content-box .item input {
-  width: 100%;
-  height: 48px;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 18px 12px;
-  border: 1px solid #e5e8eb;
-  background-color: #fff;
-}
-.join-btn {
-  background-color: #a8a8a8;
-  color: white;
-  border: 0;
-  width: 100%;
-  height: 56px;
-  font-size: 14px;
-  font-weight: 500;
+.login-box {
   margin-top: 50px;
-  transition: all 0.15s linear;
-
-  cursor: pointer;
-}
-.join-btn:hover {
-  background-color: #1866d2;
 }
 
-/* back */
-
-.backdrop {
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(2px);
-  box-shadow: 2px 7px 15px 8px rgba(0, 0, 0, 0.3);
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-.goToProfilForm {
-  width: 400px;
-  height: 400px;
-  border-radius: 20px;
-  background-color: white;
-
-  margin: 150px auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.goTo-top h1 {
-  margin-top: 40px;
-  margin-bottom: 50px;
-  font-size: 20px;
-  font-weight: 500;
+/* kakao */
+img {
+  width: 300px;
+  object-fit: cover;
 }

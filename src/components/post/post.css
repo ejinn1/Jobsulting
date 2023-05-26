@@ -1,0 +1,83 @@
+.post {
+  width: 25%;
+  height: 220px;
+  border: 1px solid gray;
+  overflow: hidden;
+  position: relative;
+  padding: 25px 30px;
+  position: relative;
+  margin-left: -1px;
+  margin-top: -1px;
+  /* background-color: rgb(192, 192, 248); */
+}
+.post:hover {
+  border: 2px solid black;
+  padding: 24px 29px;
+}
+.post-info {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.post-star {
+  position: absolute;
+  top: 80%;
+  left: 90%;
+}
+.star {
+  stroke: rgb(209, 207, 207);
+}
+.star-selected {
+  stroke: black;
+  fill: yellow;
+}
+.post h2 {
+  font-size: 16px;
+  font-weight: 500;
+}
+.post p {
+  font-size: 12px;
+}
+/* .post-info {
+} */
+.post-info .name {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #666;
+  overflow: hidden;
+}
+.post-info .title {
+  font-size: 16px;
+  letter-spacing: normal;
+  color: #272727;
+  height: 48px;
+  overflow: hidden;
+  margin-top: 15px;
+}
+/* .post-info .location {
+} */
+
+.page-Btn {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page-Btn button {
+  /* border: 1px solid gray; */
+  border: 0;
+  /* background-color: #cfdcee; */
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+
+  margin-right: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-Btn button:hover {
+  background-color: #cfdcee;
+}

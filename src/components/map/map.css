@@ -1,0 +1,17 @@
+.map {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.map path {
+  /* fill: rgb(220, 215, 215); */
+  stroke: gray;
+  transition: 0.1s linear;
+}
+.map path:hover {
+  fill: #94a8fa;
+}
+.map svg {
+  width: 700px;
+  height: 600px;
+}

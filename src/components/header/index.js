@@ -1,31 +1,50 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./header.css";
 import { useRef, useState } from "react";
+import axios from "axios";
 
-function Header() {
-  const [show, setShow] = useState(false);
+function Header({ name, access_token, setName, setEmail, SetToken }) {
   const [isLogin, setIslogin] = useState(false);
   const [view, setView] = useState(false);
-
-  const inputRef = useRef(null);
-
-  const handleFocus = () => {
-    setShow(true);
-  };
-
-  const handleBlur = () => {
-    setTimeout(() => {
-      setShow(false);
-    }, 200);
-  };
-
-  const handleClick = (suggestion) => {
-    inputRef.current.value = suggestion;
-  };
+  const navigate = useNavigate();
 
   const onLogin = () => {
     setIslogin((current) => !current);
   };
+
+  const REST_API_KEY = "3520f65988c6ec5c88bc150693095916";
+  const LOGOUT_REDIRECT_URI = "http://localhost:3000";
+
+  const handleClicklogout = () => {
+    const logoutUri = `https://kauth.kakao.com/oauth/logout?client_id=${REST_API_KEY}&logout_redirect_uri=${LOGOUT_REDIRECT_URI}`;
+    window.location.href = logoutUri;
+    setName("");
+    setEmail("");
+    SetToken("");
+    console.log("로그아웃!");
+  };
+
+  // const handleClicklogout = async (access_token) => {
+  //   try {
+  //     const response = await axios.post(
+  //       "http://127.0.0.1:8000/accounts/kakao-logout/",
+  //       {
+  //         access_token: access_token,
+  //       }
+  //     );
+
+  //     if (response.status === 200) {
+  //       console.log("Successfully logged out");
+  //       setName("");
+  //       setEmail("");
+  //       SetToken("");
+  //     } else {
+  //       console.error("Logout failed:", response.statusText);
+  //     }
+  //   } catch (error) {
+  //     console.error("An error occurred during logout:", error.message);
+  //   }
+  // };
 
   return (
     <header className="header">
@@ -36,13 +55,13 @@ function Header() {
         <div className="header-content">
           <nav className="header-nav">
             <Link to="/job">직무 탐색</Link>
-            <Link to="/">AI 분석 결과</Link>
+            <Link to="/recommend">AI 추천</Link>
             <Link to="/profil">내 프로필</Link>
-            <Link to="/">커뮤니티</Link>
+            <Link to="/posting">공고</Link>
           </nav>
 
           <div className="header-right">
-            <div className="input-box">
+            {/* <div className="input-box">
               <svg
                 width="24"
                 height="24"
@@ -89,8 +108,8 @@ function Header() {
                   </div>
                 </div>
               )}
-            </div>
-            {isLogin ? (
+            </div> */}
+            {/* {isLogin ? (
               <div
                 className="login-profil"
                 onClick={() => {
@@ -105,16 +124,33 @@ function Header() {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M12 10.8a3.6 3.6 0 1 0 0-7.2 3.6 3.6 0 0 0 0 7.2ZM3.6 21.6a8.4 8.4 0 0 1 16.8 0H3.6Z"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                   ></path>
                 </svg>
                 {view && (
                   <div className="dropDown">
                     <div className="drop-box">
-                      <div>로그아웃</div>
-                      <div>내 프로필</div>
+                      <ul>
+                        <li>
+                          <Link to={"/profil"} className="drop-item">
+                            내 프로필
+                          </Link>
+                        </li>
+                        <li>
+                          <div
+                            className="drop-item"
+                            onClick={() => {
+                              setIslogin(!isLogin);
+                              // logout();
+                              // setView(!view);
+                            }}
+                          >
+                            로그아웃
+                          </div>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 )}
@@ -123,17 +159,22 @@ function Header() {
               <div className="login-Btn" onClick={onLogin}>
                 로그인
               </div>
+            )} */}
+            {name !== "" ? (
+              <>
+                <h2>{name} Hi</h2>
+                <button onClick={handleClicklogout}>로그아웃</button>
+              </>
+            ) : (
+              <>
+                {/* <div className="login-Btn">
+                  <Link to="/login">로그인</Link>
+                </div> */}
+                <div className="login-Btn">
+                  <Link to="/join">회원가입/로그인</Link>
+                </div>
+              </>
             )}
-            <div className="login-Btn">
-              <Link to="/login">로그인</Link>
-            </div>
-            <div className="login-Btn">
-              <Link to="/join">회원가입</Link>
-            </div>
-
-            {/* <div className="login-Btn">
-              <Link to="/">기업 로그인/회원가입</Link>
-            </div> */}
           </div>
         </div>
       </div>
