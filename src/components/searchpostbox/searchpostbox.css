@@ -1,0 +1,13 @@
+.search-company-info {
+  width: 100%;
+  padding: 10px;
+}
+.search-company-info h1 {
+  cursor: pointer;
+}
+
+.search-info-box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

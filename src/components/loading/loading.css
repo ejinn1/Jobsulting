@@ -1,0 +1,264 @@
+.loading-back {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 70px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.9); /* 투명한 검은색 배경 */
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+}
+
+.loading-box {
+  width: 1100px;
+  /* background-color: white; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loading-box h1 {
+  position: relative;
+  top: -50px;
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+
+  animation: loadingText 2s ease-out infinite;
+}
+
+@keyframes loadingText {
+  0% {
+    transform: scale(1);
+    text-shadow: none;
+  }
+  10% {
+    transform: scale(1.1);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+  }
+  30% {
+    transform: scale(0.9);
+    text-shadow: none;
+  }
+  40% {
+    transform: scale(1);
+    text-shadow: none;
+  }
+  100% {
+    transform: scale(1);
+    text-shadow: none;
+  }
+}
+
+/* p */
+.loading-box .p1 {
+  position: relative;
+  top: -50px;
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+  animation: point1 2s ease-out infinite;
+}
+
+@keyframes point1 {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.loading-box .p2 {
+  position: relative;
+  top: -50px;
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+  animation: point2 2s ease-out infinite;
+}
+
+@keyframes point2 {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.loading-box .p3 {
+  position: relative;
+  top: -50px;
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+  animation: point3 2s ease-out infinite;
+}
+
+@keyframes point3 {
+  0% {
+    transform: translateY(0);
+  }
+  70% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Add animations for .p4 to .p8 */
+.loading-box .p4 {
+  position: relative;
+  top: -50px;
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+  animation: point4 2s ease-out infinite;
+}
+
+@keyframes point4 {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.loading-box .p5 {
+  position: relative;
+  top: -50px;
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+  animation: point5 2s ease-out infinite;
+}
+
+@keyframes point5 {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.loading-box .p6 {
+  position: relative;
+  top: -50px;
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+  animation: point6 2s ease-out infinite;
+}
+
+@keyframes point6 {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.loading-box .p7 {
+  position: relative;
+  top: -50px;
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+  animation: point7 2s ease-out infinite;
+}
+
+@keyframes point7 {
+  0% {
+    transform: translateY(0);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.loading-box .p8 {
+  position: relative;
+  top: -50px;
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+  animation: point8 2s ease-out infinite;
+}
+
+@keyframes point8 {
+  0% {
+    transform: translateY(0);
+  }
+  70% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.loading-box .p9 {
+  position: relative;
+  top: -50px;
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+  animation: point9 2s ease-out infinite;
+}
+
+@keyframes point9 {
+  0% {
+    transform: translateY(0);
+  }
+  80% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.loading-box .p10 {
+  position: relative;
+  top: -50px;
+  font-size: 40px;
+  font-weight: 700;
+  color: white;
+  animation: point10 2s ease-out infinite;
+}
+
+@keyframes point10 {
+  0% {
+    transform: translateY(0);
+  }
+  90% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

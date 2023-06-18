@@ -9,3 +9,5 @@ export { default as PostingPage } from "./posting";
 export { default as KakaoPage } from "./kakao";
 export { default as ResultPage } from "./result";
 export { default as TrendPage } from "./trend";
+export { default as SearchPage } from "./search";
+export { default as MiniConsultingPage } from "./miniconsulting";

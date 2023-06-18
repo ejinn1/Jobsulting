@@ -1,0 +1,29 @@
+.compare-post {
+  width: 500px;
+  height: 200px;
+  /* margin: 0 auto 40px; */
+
+  border: 2px solid black;
+
+  padding: 20px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+}
+.compare-post p {
+  font-size: 15px;
+}
+
+.compare-post-title {
+  margin-top: 10px;
+  color: #1866d2;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  margin-bottom: 25px;
+}
+
+.compare-post-content {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+}

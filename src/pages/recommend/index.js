@@ -1,39 +1,66 @@
 import axios from "axios";
 import "./recommend.css";
 import { useEffect, useState } from "react";
-import { Map, SelectBox, Stack } from "components";
+import { Loading, Map, Mini, SelectBox, Stack } from "components";
 import { Link, useNavigate } from "react-router-dom";
 
 function Recommend() {
+  const name = localStorage.getItem("name");
+
   const [salary, setSalary] = useState("");
   const [career, setCareer] = useState("");
   const [education, setEducation] = useState("");
 
   // loading
-  const [loading, setLoadion] = useState(false);
+  const [loading, setLoadiong] = useState(false);
   const navigate = useNavigate();
 
   // location
+  const [resultLocation, setResultLocation] = useState("");
+  const finalLocation = (event) => {
+    setResultLocation(event.target.value);
+  };
   const [location, setLocation] = useState("");
-  const [seletedLocation, setSelectedLocation] = useState("");
+  useEffect(() => {
+    // 서버로부터 지역 데이터 가져오기
+    axios
+      .get("http://127.0.0.1:8000/match/location-api/") // 요청을 보낼 엔드포인트 경로
+      .then((response) => {
+        // 서버로부터 받은 데이터 처리
+        const data = response.data;
+        // console.log("location", data);
+        setLocation(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  const [filteredLocations, setFilteredLocations] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState("");
   const [clickedId, setClickedId] = useState("");
   const handelPathClick = (event) => {
     if (event === "") {
       setSelectedLocation("");
+      setFilteredLocations([]);
     } else {
-      // console.log(event.target.classList.value);
-      setSelectedLocation(event.target.classList.value);
+      const sltdlocaton = event.target.classList.value;
+      setSelectedLocation(sltdlocaton);
+      setFilteredLocations(
+        location.filter((item) => {
+          return item.location.substring(0, 2) === sltdlocaton.substring(0, 2);
+        })
+      );
     }
   };
-  const onClickNationwide = () => {
-    if (clickedId === "16") {
-      setClickedId("");
-      setSelectedLocation("");
-    } else {
-      setClickedId("16");
-      setSelectedLocation("전국");
-    }
-  };
+  // const onClickNationwide = () => {
+  //   if (clickedId === "16") {
+  //     setClickedId("");
+  //     setSelectedLocation("");
+  //   } else {
+  //     setClickedId("16");
+  //     setSelectedLocation("전국");
+  //   }
+  // };
 
   //stack
   const [stack, setStack] = useState([]);
@@ -101,7 +128,7 @@ function Recommend() {
     setSelectedWorkType(event.target.value);
   };
 
-  // 에듀
+  // education
   const handleEducationChange = (event) => {
     // console.log(event.target.value);
     setEducation(event.target.value);
@@ -118,7 +145,7 @@ function Recommend() {
     },
     {
       id: 2,
-      type: "대학졸업(2,3)년",
+      type: "대학졸업(2,3년)",
     },
     {
       id: 3,
@@ -137,9 +164,9 @@ function Recommend() {
   // 서버에 요청
   const sendData = (event) => {
     event.preventDefault();
-    setLoadion(true);
+    setLoadiong(true);
     const data = {
-      location: seletedLocation,
+      location: resultLocation,
       salary: salary,
       career: career,
       skills: selectedStack,
@@ -150,25 +177,44 @@ function Recommend() {
     axios
       .post("http://127.0.0.1:8000/match/parameter-api/", data)
       .then((response) => {
-        console.log(response.data);
+        console.log("recommend", response.data);
         const dataPass = response.data.jobsearch_data_json;
-        navigate("/result", { state: { data: dataPass } });
+        const stars = response.data.stars;
+        const keyword = response.data.keyword;
+        navigate("/result", {
+          state: {
+            data: dataPass,
+            content: data,
+            stars: stars,
+            keyword: keyword,
+          },
+        });
       })
       .catch((error) => {
         console.log(error);
       });
-    setSelectedStack([]);
+    // setSelectedStack([]);
   };
 
   return (
     <div>
       {loading ? (
-        <div className="loading-box">
-          <h1>loading...</h1>
+        <div>
+          <Loading />
         </div>
       ) : (
         <div className="recommend-main">
           <h1>AI 추천</h1>
+
+          {/* <span>
+            <Mini
+              resultLocation={resultLocation}
+              selectedStack={selectedStack}
+              salary={salary}
+              selectedworkType={selectedworkType}
+              education={education}
+            />
+          </span> */}
           <div className="recommend-input-box">
             <h1>선택</h1>
             <form onSubmit={sendData}>
@@ -177,23 +223,44 @@ function Recommend() {
                   <strong>지역</strong>
                 </label>
                 <div>
-                  <button
+                  {/* <button
                     type="button"
                     className="nationwide-Btn"
                     onClick={onClickNationwide}
                   >
                     전국
-                  </button>
+                  </button> */}
+                  <div className="location-select">
+                    {selectedLocation !== "" ? (
+                      <p>선택 지역 : {selectedLocation}</p>
+                    ) : (
+                      <>
+                        <p>지역을 선택해주세요.</p>
+                      </>
+                    )}
+                  </div>
                   <Map
                     setClickedId={setClickedId}
                     clickedId={clickedId}
                     onPathClick={handelPathClick}
                   />
                   <div className="location-select">
-                    {seletedLocation !== "" ? (
-                      <p>선택 지역 : {seletedLocation}</p>
-                    ) : (
-                      <p>지역을 선택해주세요.</p>
+                    <p>세부 지역을 선택해 주세요.</p>
+                  </div>
+                  <div>
+                    <br />
+                    {clickedId !== "" && (
+                      <select
+                        className="select-box"
+                        value={resultLocation}
+                        onChange={finalLocation}
+                      >
+                        {filteredLocations.map((item) => (
+                          <option key={item.id} value={item.location}>
+                            {item.location.substring(2)}
+                          </option>
+                        ))}
+                      </select>
                     )}
                   </div>
                 </div>
@@ -204,16 +271,22 @@ function Recommend() {
                     <strong>스택</strong>
                   </label>
                 </div>
-                <div className="stack-list">
-                  {selectedStack.map((s) => (
-                    <span>{s}</span>
-                  ))}
+                <div className="stack-top">
+                  <input
+                    className="stack-input"
+                    placeholder="검색"
+                    type="text"
+                    value={inputStack}
+                    onChange={handleinputSearch}
+                  />
+                  <div className="stack-list-container">
+                    <div className="stack-list">
+                      {selectedStack.map((s) => (
+                        <span>{s}</span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <input
-                  type="text"
-                  value={inputStack}
-                  onChange={handleinputSearch}
-                />
                 <div className="stack-wrapper">
                   {tony.map((s) => (
                     <Stack
@@ -230,12 +303,15 @@ function Recommend() {
                   <strong>연봉</strong>
                 </label>
                 <input
+                  className="input"
                   id="salary"
                   value={salary}
-                  type="number"
+                  type="text"
                   placeholder="연봉 입력 (단위 만원)"
                   onChange={(event) => {
-                    setSalary(event.target.value);
+                    const enteredValue = event.target.value;
+                    const numericValue = enteredValue.replace(/\D/g, ""); // 숫자 이외의 문자 제거
+                    setSalary(numericValue);
                   }}
                 />
               </div>
@@ -244,12 +320,15 @@ function Recommend() {
                   <strong>경력</strong>
                 </label>
                 <input
+                  className="input"
                   id="carrer"
                   value={career}
-                  type="number"
+                  type="text"
                   placeholder="경력 입력 (신입이면 0)"
                   onChange={(event) => {
-                    setCareer(event.target.value);
+                    const enteredValue = event.target.value;
+                    const numericValue = enteredValue.replace(/\D/g, ""); // 숫자 이외의 문자 제거
+                    setCareer(numericValue);
                   }}
                 />
               </div>

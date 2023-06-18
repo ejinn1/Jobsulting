@@ -67,68 +67,15 @@
   align-items: center;
   padding: 10px 20px;
 }
-
-.input-box {
-  width: 300px;
-  height: 40px;
+.right-login-box {
   position: relative;
-  border: 0;
-  border-radius: 4px;
-  margin-right: 10px;
-}
-.input-box svg {
-  position: absolute;
-  left: 15px;
-  top: 8px;
-}
-.input-box input {
-  border: 0;
-  padding-left: 50px;
-  background-color: #f3f5f7;
-  width: 100%;
-  height: 100%;
-  border-radius: 4px;
-  outline: none;
-}
-
-.suggest-title {
-  width: 100%;
-}
-.input-box .input-suggest {
-  width: 300px;
-  max-height: 0;
-  background-color: white;
-  position: absolute;
-  top: 40px;
-  border-radius: 8px;
-  padding: 10px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
-
   display: flex;
-  flex-wrap: wrap;
-
-  transition: max-height 1s ease-out;
+  align-items: center;
+  justify-content: center;
 }
-.input-box:focus-within .input-suggest {
-  max-height: 300px;
-}
-.suggest-title {
-  width: 300px;
-  margin-bottom: 12px;
-}
-.suggest {
-  margin-top: 8px;
-  margin-right: 8px;
-  border-radius: 15px;
-  padding: 5px 12px;
-  font-size: 14px;
-  line-height: 20px;
-  height: 30px;
-  font-weight: 400;
-
-  color: #595f63;
-  background-color: #f3f4f5;
-  position: relative;
+.right-login-box strong {
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .login-Btn {
@@ -145,34 +92,19 @@
 .login-Btn:hover {
   background-color: #f3f5f7;
 }
-.login-profil {
-  width: 30px;
-  height: 30px;
-  border: 1px solid white;
-  border-radius: 50%;
-  background-color: #e0e2e4;
-  margin-left: 32px;
-
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-}
 
 /* drop */
 
 .dropDown {
   position: absolute;
   width: 150px;
-  top: 25px;
+  top: 30px;
   left: -30px;
-  padding: 10px;
+  /* padding: 10px; */
 }
 .drop-box {
-  width: 100%;
+  width: 130px;
+
   border-radius: 10px;
   box-shadow: 1px 2px 10px 0 rgba(0, 0, 0, 0.3);
   border: 1px solid #cdcdcd;
@@ -182,13 +114,13 @@
 }
 .drop-box ul {
   padding-top: 10px;
+  padding-bottom: 10px;
 }
 .drop-box ul li {
   position: relative;
   display: block;
   height: 100%;
-
-  /* vertical-align: middle; */
+  font-size: 15px;
 }
 .drop-box .drop-item {
   display: flex;

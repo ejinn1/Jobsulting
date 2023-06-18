@@ -1,0 +1,33 @@
+.search-post {
+  width: 520px;
+  height: 200px;
+  margin-bottom: 40px;
+  border: 1px solid black;
+  padding: 20px;
+}
+.search-post:hover {
+  width: 520px;
+  height: 200px;
+  margin-bottom: 40px;
+  border: 2px solid black;
+  padding: 19px;
+  cursor: pointer;
+}
+.search-post p {
+  font-size: 15px;
+}
+
+.search-post-title {
+  margin-top: 10px;
+  color: #1866d2;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  margin-bottom: 25px;
+}
+
+.search-post-content {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+}

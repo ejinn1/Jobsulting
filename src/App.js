@@ -3,7 +3,6 @@ import "./styles/index.css";
 import {
   MainPage,
   JoinPage,
-  LoginPage,
   ProfilForm,
   JobPage,
   RecommendPage,
@@ -12,25 +11,27 @@ import {
   KakaoPage,
   ResultPage,
   TrendPage,
+  SearchPage,
+  MiniConsultingPage,
 } from "pages";
-import { Header } from "components";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { Header, ScrollToTop } from "components";
+
+import { useState } from "react";
 
 function App() {
-  const [isLoggedId, setIsLoggedIn] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [access_token, SetToken] = useState("");
+  const [access_token, setToken] = useState("");
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Header
         name={name}
+        email={email}
         setName={setName}
         setEmail={setEmail}
-        access_token={access_token}
-        SetToken={SetToken}
+        setToken={setToken}
       />
       <Routes>
         <Route path="/" element={<MainPage />} />
@@ -50,12 +51,14 @@ function App() {
             <KakaoPage
               setName={setName}
               setEmail={setEmail}
-              SetToken={SetToken}
+              setToken={setToken}
             />
           }
         />
         <Route path="/result" element={<ResultPage />} />
         <Route path="/trend" element={<TrendPage />} />
+        <Route path="/search" element={<SearchPage />} />
+        <Route path="/miniconsulting" element={<MiniConsultingPage />} />
       </Routes>
     </BrowserRouter>
   );

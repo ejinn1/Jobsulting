@@ -1,0 +1,43 @@
+.mini-box {
+  position: fixed;
+  top: 20vh;
+  left: 2vw;
+  font-size: 15px;
+  overflow-x: auto;
+  width: 100px;
+
+  padding: 10px;
+  border: 1px solid #94a8fa;
+  border-radius: 3px;
+  background-color: #fff;
+  margin-bottom: 0;
+  background-color: white;
+}
+
+.mini-box-expanded {
+  position: fixed;
+  top: 20vh;
+  left: 2vw;
+  font-size: 15px;
+  overflow-x: auto;
+  width: 200px;
+  max-width: 230px;
+  padding: 20px 20px 20px;
+  border: 1px solid #94a8fa;
+  border-radius: 3px;
+  background-color: #fff;
+  margin-bottom: 0;
+  background-color: white;
+}
+
+.mini-title {
+  color: #1866d2;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.mini-content {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 20px;
+}

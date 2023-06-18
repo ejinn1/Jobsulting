@@ -14,3 +14,28 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.page-Btn {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page-Btn button {
+  /* border: 1px solid gray; */
+  border: 0;
+  /* background-color: #cfdcee; */
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+
+  margin-right: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-Btn button:hover {
+  background-color: #cfdcee;
+}

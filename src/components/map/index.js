@@ -9,7 +9,7 @@ function Map({ clickedId, setClickedId, onPathClick }) {
       setClickedId("");
     } else {
       onPathClick(event);
-      console.log(event.target.id);
+      // console.log(event.target.id);
       setClickedId(event.target.id);
     }
   };

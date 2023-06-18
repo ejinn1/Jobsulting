@@ -8,6 +8,7 @@
   position: relative;
   margin-left: -1px;
   margin-top: -1px;
+  cursor: pointer;
   /* background-color: rgb(192, 192, 248); */
 }
 .post:hover {
@@ -19,17 +20,20 @@
   height: 100%;
   position: relative;
 }
-.post-star {
+
+.post-link {
   position: absolute;
   top: 80%;
   left: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 3px;
+  cursor: pointer;
 }
-.star {
-  stroke: rgb(209, 207, 207);
-}
-.star-selected {
-  stroke: black;
-  fill: yellow;
+.post-link:hover {
+  background-color: #f3f5f7;
 }
 .post h2 {
   font-size: 16px;
@@ -38,8 +42,7 @@
 .post p {
   font-size: 12px;
 }
-/* .post-info {
-} */
+
 .post-info .name {
   font-size: 14px;
   line-height: 1.5;
@@ -54,30 +57,34 @@
   overflow: hidden;
   margin-top: 15px;
 }
-/* .post-info .location {
-} */
-
-.page-Btn {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
+.post-info .location {
+  font-size: 12px;
+  letter-spacing: normal;
+  color: #272727;
+  height: 37px;
+  overflow: hidden;
+}
+.post-info .date {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #666;
+  overflow: hidden;
+  margin-top: 15px;
+}
+.goob {
+  position: absolute;
+  width: 100px;
+  top: 80%;
+  left: 80%;
+  font-size: 13px;
   align-items: center;
 }
-.page-Btn button {
-  /* border: 1px solid gray; */
-  border: 0;
-  /* background-color: #cfdcee; */
-  background-color: white;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-
-  margin-right: 10px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.page-Btn button:hover {
-  background-color: #cfdcee;
+.top {
+  position: relative;
+  left: -30px;
+  width: 0;
+  height: 0;
+  border-top: 50px solid transparent;
+  border-right: 50px solid white;
+  transform: skewX(-45deg);
 }
