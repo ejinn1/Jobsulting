@@ -18,6 +18,8 @@ import { Header, ScrollToTop } from "components";
 
 import { useState } from "react";
 
+const Hi = "hi";
+
 function App() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
